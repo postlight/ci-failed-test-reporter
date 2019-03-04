@@ -1,8 +1,9 @@
 const fs = require('fs');
+const path = require('path');
 
-const getTestReport = path => {
+const getTestReport = filepath => {
   try {
-    const testReport = JSON.parse(fs.readFileSync(path));
+    const testReport = JSON.parse(fs.readFileSync(__dirname + filepath));
     const { numFailedTests } = testReport;
     if (numFailedTests === 0) {
       return false;
