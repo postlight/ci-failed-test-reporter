@@ -1,5 +1,4 @@
 const fs = require('fs');
-const path = require('path');
 
 const getTestReport = filepath => {
   try {
@@ -30,8 +29,9 @@ ${failedTests
   <summary>
     See what went wrong
   </summary>
+
 \`\`\`bash
-  ${failureMessages.join('\n\n')}
+${failureMessages.join('\n\n')}
 \`\`\`
   </details>
 ---

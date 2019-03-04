@@ -8,12 +8,14 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint ./src --ext .ts,.js --fix",
-    "test": "jest --json --outputFile src/test-output.json",
+    "test": "jest --json --outputFile src/test-output.json; ts-node test.js",
     "test:watch": "jest --watchAll",
     "ts-node": "ts-node",
     "nodemon": "nodemon",
   },
-  "dependencies": {},
+  "dependencies": {
+    "node-fetch": "^2.3.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",

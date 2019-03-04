@@ -81,3 +81,5 @@ dist
 
 # DynamoDB Local files
 .dynamodb/
+
+src/test-output.json
