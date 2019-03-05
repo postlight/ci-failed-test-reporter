@@ -11,7 +11,7 @@
     "test": "jest --json --outputFile src/test-output.json; ts-node test.js",
     "test:watch": "jest --watchAll",
     "ts-node": "ts-node",
-    "nodemon": "nodemon",
+    "nodemon": "nodemon"
   },
   "dependencies": {
     "node-fetch": "^2.3.0"
