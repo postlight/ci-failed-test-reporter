@@ -20,10 +20,12 @@ jobs:
       - checkout
       - run:
           name: Define Environment Variables at Runtime
+          environment:
+              PR_NUMBER: echo $CIRCLE_PULL_REQUEST | grep -Eo "\/pull\/([0-9]+)\/issues\/" | grep -Eo "[0-9]+"
           command: |
             echo 'export PR_REPONAME=${CIRCLE_PULL_REQUEST}' >> $BASH_ENV
             echo 'export PR_USERNAME=${CIRCLE_PROJECT_USERNAME}' >> $BASH_ENV
-            echo 'export PR_NUMBER=${CIRCLE_PROJECT_REPONAME}' >> $BASH_ENV
+            echo 'export PR_NUMBER=${PR_NUMBER}' >> $BASH_ENV
             source $BASH_ENV
 
       # Download and cache dependencies
