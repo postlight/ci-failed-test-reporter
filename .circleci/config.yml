@@ -32,13 +32,13 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run:
-          name: Define Environment Variables at Runtime
-          command: |
-            echo 'export PR_REPONAME="$CIRCLE_PR_REPONAME"' >> $BASH_ENV
       # run tests!
       - run: yarn test
       - run: 
           name: Upload Test Report
           command: yarn run-test-report
+          environment:
+            PR_REPONAME: $CIRCLE_PR_REPONAME
+            PR_USERNAME: $CIRCLE_PR_USERNAME
+            PR_NUMBER: $CIRCLE_PR_NUMBER
           when: on_fail
