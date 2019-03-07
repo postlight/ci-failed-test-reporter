@@ -21,7 +21,7 @@ jobs:
       - run:
           name: Define Environment Variables at Runtime
           command: |
-            echo 'export PR_REPONAME=${CIRCLE_PR_REPONAME}' >> $BASH_ENV
+            echo 'export PR_REPONAME=hello' >> $BASH_ENV
             echo 'export PR_USERNAME=${CIRCLE_PROJECT_USERNAME}' >> $BASH_ENV
             echo 'export PR_NUMBER=${CIRCLE_PULL_REQUEST}' >> $BASH_ENV
             source $BASH_ENV
