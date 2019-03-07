@@ -32,7 +32,7 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      -run:
+      - run:
           name: Define Environment Variables at Runtime
           command: |
             echo 'export PR_REPONAME=$(cat $CIRCLE_PR_REPONAME)' >> $BASH_ENV
