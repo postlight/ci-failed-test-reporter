@@ -8,8 +8,9 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint ./src --ext .ts,.js --fix",
-    "test": "jest --json --outputFile src/test-output.json; ts-node test.js",
+    "test": "jest --json --outputFile test-output.json",
     "test:watch": "jest --watchAll",
+    "run-test-report": "ts-node run-test-report.js",
     "ts-node": "ts-node",
     "nodemon": "nodemon"
   },

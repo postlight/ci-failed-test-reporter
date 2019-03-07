@@ -7,7 +7,12 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:latest
+      - image: circleci/node:10.2.1
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
 
     working_directory: ~/ci-test-failure-reporter
 
@@ -28,11 +33,9 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # run linting
-      - run: yarn lint
-
-      # build
-      - run: yarn build
-
-      # run tests
+      # run tests!
       - run: yarn test
+      - run: 
+          name: Upload Test Report
+          command: yarn test-report
+          when: on_fail
