@@ -8,6 +8,7 @@ function comment(filepath: string) {
   const username = process.env.PR_USERNAME;
   const repoName = process.env.PR_REPONAME;
   const prNumber = process.env.PR_NUMBER;
+  const commenter = process.env.COMMENTER_USERNAME;
 
   const request: any = {
     method: 'POST',
@@ -16,7 +17,7 @@ function comment(filepath: string) {
       'Content-Type': 'application/json',
       Accept: 'application/vnd.github.v3+json',
       Authorization: `token ${process.env.GITHUB_API_KEY}`,
-      'User-Agent': username
+      'User-Agent': commenter
     }
   };
 
