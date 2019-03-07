@@ -5,9 +5,9 @@ const getTestReport = require('./getTestReport');
 const stripAnsi = require('strip-ansi');
 
 function comment(filepath: string) {
-  const username = process.env.CIRCLE_PR_USERNAME || process.env.PR_USERNAME;
-  const repoName = process.env.CIRCLE_PR_REPONAME || process.env.PR_REPONAME;
-  const prNumber = process.env.CIRCLE_PR_NUMBER || process.env.PR_NUMBER;
+  const username = process.env.PR_USERNAME;
+  const repoName = process.env.PR_REPONAME;
+  const prNumber = process.env.PR_NUMBER;
 
   const request: any = {
     method: 'POST',
