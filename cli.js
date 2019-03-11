@@ -19,7 +19,7 @@ Usage:\n\
   );
 } else {
   try {
-    functions.comment(process.cwd() + `/${filepath}`).then(testReport => {
+    functions.comment(process.cwd() + `${filepath}`).then(testReport => {
       console.log(
         `\n\
   ci-test-failure-reporter\n\n\
