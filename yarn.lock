@@ -681,6 +681,13 @@
     log-update "^2.3.0"
     strip-ansi "^3.0.1"
 
+"@postlight/ci-failed-test-reporter@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@postlight/ci-failed-test-reporter/-/ci-failed-test-reporter-1.0.1.tgz#319a060d9c56e646ca3086633f69d67813a9dcd2"
+  integrity sha512-o92sinksYF7GIzSk9Fqgdlf9E4YnWg5CIGYXzz/WPiFAsHe4HZrcL1lcJMAOkN0tfEESoG9AQU/H7Jw9+vOwBw==
+  dependencies:
+    node-fetch "^2.3.0"
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
