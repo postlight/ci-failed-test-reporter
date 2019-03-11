@@ -1,3 +1,3 @@
-const comment = require(__dirname + "/src/index.ts").comment;
+const comment = require(__dirname + "/src/index.js").comment;
 
-comment('/test-output.json');
+comment(__dirname + '/test-output.json');

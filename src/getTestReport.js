@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const getTestReport = filepath => {
   try {
-    const testReport = JSON.parse(fs.readFileSync(__dirname + filepath));
+    const testReport = JSON.parse(fs.readFileSync(filepath));
     const { numFailedTests } = testReport;
     if (numFailedTests === 0) {
       return false;
