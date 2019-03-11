@@ -5,7 +5,6 @@
 const functions = require('./src/index.js');
 
 const [, , filepath] = process.argv;
-process.chdir('../../../');
 
 if (!filepath) {
   console.log(
@@ -20,7 +19,7 @@ Usage:\n\
   );
 } else {
   try {
-    functions.comment(filepath).then(testReport => {
+    functions.comment(process.cwd() + `/${filepath}`).then(testReport => {
       console.log(
         `\n\
   ci-test-failure-reporter\n\n\
