@@ -5,6 +5,7 @@
 const functions = require("./src/index.js");
 
 const [, , filepath] = process.argv;
+process.chdir("../../../");
 
 if (!filepath) {
   console.log(
