@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 /* eslint-disable no-multi-str */
+/* eslint-disable no-console */
 
-const functions = require("./src/index.js");
+const functions = require('./src/index.js');
 
 const [, , filepath] = process.argv;
+process.chdir('../../../');
 
 if (!filepath) {
   console.log(
@@ -18,7 +20,7 @@ Usage:\n\
   );
 } else {
   try {
-    functions.comment(__dirname + filepath).then((testReport) => {
+    functions.comment(filepath).then(testReport => {
       console.log(
         `\n\
   ci-test-failure-reporter\n\n\
@@ -27,8 +29,8 @@ Usage:\n\
   \n\
   `
       );
-    })
-  } catch(err) {
+    });
+  } catch (err) {
     console.error(`ERROR: ${err}`);
   }
 }
