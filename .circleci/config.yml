@@ -42,6 +42,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       # run tests!
       - run: yarn test
+      - run: yarn link
       - run: 
           name: Upload Test Report
           command: ci-test-failure-reporter /test-output.json
