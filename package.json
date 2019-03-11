@@ -2,6 +2,9 @@
   "name": "ci-failed-test-reporter",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "bin": {
+    "ci-failed-test-reporter": "./cli.js"
+  },
   "repository": "https://github.com/postlight/ci-failed-test-reporter.git",
   "author": "Frankie Simms <fdsimms@gmail.com>",
   "license": "MIT",
