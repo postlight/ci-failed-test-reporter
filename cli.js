@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /* eslint-disable no-multi-str */
+/* eslint-disable no-console */
 
 const functions = require("./src/index.js");
 
