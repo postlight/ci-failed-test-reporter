@@ -44,5 +44,5 @@ jobs:
       - run: yarn test
       - run: 
           name: Upload Test Report
-          command: yarn run-test-report
+          command: yarn ci-test-failure-reporter /test-output.json
           when: on_fail
