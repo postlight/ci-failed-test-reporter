@@ -1,5 +1,5 @@
 {
-  "name": "ci-failed-test-reporter",
+  "name": "@postlight/ci-failed-test-reporter",
   "version": "1.0.0",
   "main": "dist/index.js",
   "bin": {
