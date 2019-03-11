@@ -19,7 +19,7 @@ Usage:\n\
   );
 } else {
   try {
-    functions.comment(__dirname + filepath).then((testReport) => {
+    functions.comment(filepath).then((testReport) => {
       console.log(
         `\n\
   ci-test-failure-reporter\n\n\
