@@ -1,6 +1,6 @@
 {
   "name": "@postlight/ci-failed-test-reporter",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "main": "dist/index.js",
   "description": "A tool for outputting JSON test reports as PR comments",
   "bin": {
@@ -16,11 +16,11 @@
     "test:watch": "jest --watchAll",
     "run-test-report": "ts-node run-test-report.js",
     "ts-node": "ts-node",
-    "nodemon": "nodemon",
-    "dotenv": "^6.2.0"
+    "nodemon": "nodemon"
   },
   "dependencies": {
-    "node-fetch": "^2.3.0"
+    "node-fetch": "^2.3.0",
+    "dotenv": "^6.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
