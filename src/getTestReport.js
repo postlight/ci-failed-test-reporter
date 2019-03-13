@@ -1,5 +1,7 @@
 const fs = require('fs');
 
+const testOrTests = numberOfTests => (numberOfTests === 1 ? 'test' : 'tests');
+
 const getTestReport = filepath => {
   try {
     const testReport = JSON.parse(fs.readFileSync(filepath));
@@ -17,13 +19,13 @@ const getTestReport = filepath => {
     const failureReport = `
 <details>
 <summary>
-<b>${numFailedTests} failed tests 😱</b>
+<b>${numFailedTests} failed ${testOrTests(numFailedTests)} 😱</b>
 </summary>
 ---
 ${failedTests
-      .map(
-        ({ fullName, failureMessages }) =>
-          `
+  .map(
+    ({ fullName, failureMessages }) =>
+      `
 **${fullName}**
   <details>
   <summary>
@@ -36,8 +38,8 @@ ${failureMessages.join('\n\n')}
   </details>
 ---
   `
-      )
-      .join('\n\n')}
+  )
+  .join('\n\n')}
 </details>
 `;
     return failureReport;
