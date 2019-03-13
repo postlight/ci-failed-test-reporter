@@ -49,9 +49,9 @@ Using Jest, your `package.json`'s `scripts` section would look something like:
 
 ```json
   "scripts": {
-    # [...any other scripts...]
+    // [...any other scripts...]
     "test-with-output": "jest --json --outputFile test-output.json",
-    # [...any other scripts...]
+    // [...any other scripts...]
   },
 ```
 
