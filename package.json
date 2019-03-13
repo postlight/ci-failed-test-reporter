@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "description": "A tool for outputting JSON test reports as PR comments",
   "bin": {
-    "ci-failed-test-reporter": "./cli.js"
+    "ciftr": "./cli.js"
   },
   "repository": "https://github.com/postlight/ci-failed-test-reporter.git",
   "author": "Frankie Simms <fdsimms@gmail.com>",

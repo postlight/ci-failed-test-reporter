@@ -2,7 +2,7 @@
 /* eslint-disable no-multi-str */
 /* eslint-disable no-console */
 
-const functions = require('./src/index.js');
+const ciftr = require('./src/index.js');
 
 const [, , filepath] = process.argv;
 
@@ -19,7 +19,7 @@ Usage:\n\
   );
 } else {
   try {
-    functions.comment(process.cwd() + `${filepath}`).then(testReport => {
+    ciftr.comment(process.cwd() + `${filepath}`).then(testReport => {
       console.log(
         `\n\
   ci-test-failure-reporter\n\n\
