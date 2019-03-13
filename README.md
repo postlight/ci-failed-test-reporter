@@ -6,7 +6,7 @@ This tool was built to facilitate this process—when your CI build breaks due t
 
 ## Setup
 
-### `yarn install`
+### Installation
 
 This tool is published as an npm package, so installing it is as easy as running `yarn add @postlight/ci-failed-test-reporter` or `npm install @postlight/ci-failed-test-reporter`, depending on your tool of choice.
 
@@ -43,7 +43,19 @@ You can check out [this repo's CircleCI config](/.circleci/config.yml) for an ex
 
 ### `package.json` setup
 
-You will need to make sure that you have a `package.json` test script that is set up to write test results to a file in the root directory of your repo. Using Jest, this yarn/npm script will look like `jest --json --outputFile test-output.json`. This test script then needs to be invoked during the test step of your CircleCI build process. You can check out [this repo's package.json](/package.json) for some guidance.
+You will need to make sure that you have a `package.json` test script that is set up to write test results to a file in the root directory of your repo. This test script then needs to be invoked during the test step of your CircleCI build process. 
+
+Using Jest, your `package.json`'s `scripts` section would look something like: 
+
+```json
+  "scripts": {
+    # [...any other scripts...]
+    "test-with-output": "jest --json --outputFile test-output.json",
+    # [...any other scripts...]
+  },
+```
+
+Check out [this repo's package.json](/package.json) if you'd like a firsthand look at an example.
 
 ### Environment variables
 
