@@ -21,6 +21,7 @@ const getTestReport = filepath => {
 <summary>
 <b>${numFailedTests} failed ${testOrTests(numFailedTests)} 😱</b>
 </summary>
+
 ---
 ${failedTests
   .map(
@@ -35,7 +36,10 @@ ${failedTests
 \`\`\`bash
 ${failureMessages.join('\n\n')}
 \`\`\`
+
+---
   </details>
+
 ---
   `
   )
