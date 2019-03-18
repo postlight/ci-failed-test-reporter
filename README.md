@@ -82,7 +82,7 @@ You can check out [this CircleCI config](.circleci/config.example.yml) for a ful
 
 ### Setting Up Your GitHub API Key Environment Variable
 
-The only environment variable you need to define for use through the CircleCI webapp is `GITHUB_API_KEY`, which must be populated with your GitHub API key. This can be the API key of any user with access to the repo—at Postlight, we've created a `postlight-bot` user and recommend you do similar. The rest of the necessary environment variables are built in to CircleCI and are exported in your CircleCI config file, as detailed [above](#Set up your CircleCI config).
+The only environment variable you need to define for use through the CircleCI webapp is `GITHUB_API_KEY`, which must be populated with your GitHub API key. This can be the API key of any user with access to the repo—at Postlight, we've created a `postlight-bot` user and recommend you do similar. In order to create a GitHub API key, start [here](https://github.com/settings/tokens). The rest of the necessary environment variables are built in to CircleCI and are exported in your CircleCI config file, as detailed [above](#Set up your CircleCI config).
 
 ---
 🔬 A project from your friends at [Postlight Labs](https://postlight.com/labs)
