@@ -10,13 +10,23 @@ function comment(filepath) {
   const prNumber = process.env.PR_NUMBER;
   const apiKey = process.env.GITHUB_API_KEY;
 
-  if (!username || !repoName || !prNumber || !apiKey) {
+  if (!prNumber) {
+    console.log('test report not uploaded to github; PR was not detected');
+    return;
+  }
+
+  if (!username || !repoName || !apiKey) {
     const undefinedVars = [];
-    if (!username)  { undefinedVars.push("Username") }
-    if (!repoName)  { undefinedVars.push("Repo Name") }
-    if (!prNumber)  { undefinedVars.push("PR Number") }
-    if (!apiKey)  { undefinedVars.push("GitHub API Key") }
-    throw `${undefinedVars.join(", ")} env variables must not be undefined`;
+    if (!username) {
+      undefinedVars.push('Username');
+    }
+    if (!repoName) {
+      undefinedVars.push('Repo Name');
+    }
+    if (!apiKey) {
+      undefinedVars.push('GitHub API Key');
+    }
+    throw `${undefinedVars.join(', ')} env variables must not be undefined`;
   }
   const body = stripAnsi(getTestReport(filepath));
   const request = {
@@ -37,7 +47,7 @@ function comment(filepath) {
     if (res.status === 201) {
       return body;
     } else {
-      throw "Error posting GitHub request";
+      throw 'Error posting GitHub request';
     }
   });
 }

@@ -1,6 +1,6 @@
 # CI Failed Test Reporter
 
-![A PR comment posted with the CI Failed Test Reporter](/readme-images/screenshot.png "CI Failed Test Reporter Screenshot")
+![A PR comment posted with the CI Failed Test Reporter](/readme-assets/demo.gif "CI Failed Test Reporter Screenshot")
 
 A familiar scene: you open up a PR only to see that your CircleCI build failed because of some tests that didn't pass. But which tests? GitHub won't tell you. Your best options for finding out include opening a console and running your test suite locally or manually sifting through the CI logs, and neither of these is as efficient as you'd like. 
 
