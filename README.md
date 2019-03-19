@@ -82,7 +82,7 @@ Next, after you run your tests (the `yarn test` command below is set up like we 
     when: on_fail # only run this when tests have failed
 ```
 
-You can check out [this CircleCI config](.circleci/config.example.yml) for a full working example.
+You can check out [this CircleCI config](.circleci/config.example.yml) for a full working example. The only thing you will definitely want to change is the `working_directory` value, which should be changed to the name of your repo. Note that this config assumes you're saving your test reports as `/test-report.json` in the root directory.
 
 ### Setting Up Your GitHub API Key Environment Variable
 
