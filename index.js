@@ -4,7 +4,7 @@ dotenv.config();
 const getTestReport = require('./src/getTestReport');
 const stripAnsi = require('strip-ansi');
 
-const setEnvVariables = require('./setEnvVariables');
+const setEnvVariables = require('./setEnvVariables').default;
 setEnvVariables();
 
 function comment(filepath) {
