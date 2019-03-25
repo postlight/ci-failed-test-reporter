@@ -4,6 +4,9 @@ dotenv.config();
 const getTestReport = require('./src/getTestReport');
 const stripAnsi = require('strip-ansi');
 
+const setEnvVariables = require('./setEnvVariables');
+setEnvVariables();
+
 function comment(filepath) {
   const username = process.env.PR_USERNAME;
   const repoName = process.env.PR_REPONAME;
