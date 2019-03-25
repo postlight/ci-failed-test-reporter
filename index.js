@@ -43,7 +43,7 @@ function comment(filepath) {
     }
   };
   console.log(
-    'https://api.github.com/repos/${username}/${repoName}/issues/${prNumber}/comments'
+    `https://api.github.com/repos/${username}/${repoName}/issues/${prNumber}/comments`
   );
   return nodeFetch(
     `https://api.github.com/repos/${username}/${repoName}/issues/${prNumber}/comments`,
