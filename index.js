@@ -42,7 +42,9 @@ function comment(filepath) {
       'User-Agent': repoName
     }
   };
-
+  console.log(
+    'https://api.github.com/repos/${username}/${repoName}/issues/${prNumber}/comments'
+  );
   return nodeFetch(
     `https://api.github.com/repos/${username}/${repoName}/issues/${prNumber}/comments`,
     request
