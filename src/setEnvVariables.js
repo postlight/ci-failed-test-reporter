@@ -9,4 +9,4 @@ const setEnvVariables = () => {
   }
 };
 
-export default setEnvVariables;
+module.exports = setEnvVariables;
