@@ -2,6 +2,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const setEnvVariables = () => {
+  console.log(process.env);
   if (process.env.TRAVIS && process.env.TRAVIS_PULL_REQUEST) {
     process.env.PR_NUMBER = process.env.TRAVIS_PULL_REQUEST;
     process.env.PR_REPONAME = process.env.TRAVIS_PULL_REQUEST.split('/')[1];
