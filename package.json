@@ -1,7 +1,7 @@
 {
   "name": "@postlight/ci-failed-test-reporter",
   "version": "1.0.17",
-  "main": "dist/index.js",
+  "main": "index.js",
   "description": "📝 A tool for outputting JSON test reports as PR comments",
   "bin": {
     "ciftr": "./cli.js"
