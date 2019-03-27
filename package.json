@@ -1,6 +1,6 @@
 {
   "name": "@postlight/ci-failed-test-reporter",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "main": "src/index.js",
   "description": "📝 A tool for outputting JSON test reports as PR comments",
   "bin": {
