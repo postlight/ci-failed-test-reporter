@@ -1,8 +1,8 @@
 const nodeFetch = require('node-fetch');
-const getTestReport = require('./src/getTestReport');
 const stripAnsi = require('strip-ansi');
 
-const getEnvVariables = require('./getEnvVariables');
+const getTestReport = require('./src/getTestReport');
+const getEnvVariables = require('./src/getEnvVariables');
 
 function comment(filepath) {
   const envVars = getEnvVariables();
