@@ -1,5 +1,4 @@
 const nodeFetch = require('node-fetch');
-dotenv.config();
 const getTestReport = require('./src/getTestReport');
 const stripAnsi = require('strip-ansi');
 
