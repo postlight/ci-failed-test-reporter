@@ -1,14 +1,12 @@
-const dotenv = require('dotenv');
 const nodeFetch = require('node-fetch');
-dotenv.config();
 const getTestReport = require('./src/getTestReport');
 const stripAnsi = require('strip-ansi');
 
+const getEnvVariables = require('./getEnvVariables');
+
 function comment(filepath) {
-  const username = process.env.PR_USERNAME;
-  const repoName = process.env.PR_REPONAME;
-  const prNumber = process.env.PR_NUMBER;
-  const apiKey = process.env.GITHUB_API_KEY;
+  const envVars = getEnvVariables();
+  const { username, repoName, prNumber, apiKey } = envVars;
 
   if (!prNumber) {
     console.log('test report not uploaded to github; PR was not detected');
@@ -39,7 +37,9 @@ function comment(filepath) {
       'User-Agent': repoName
     }
   };
-
+  console.log(
+    `https://api.github.com/repos/${username}/${repoName}/issues/${prNumber}/comments`
+  );
   return nodeFetch(
     `https://api.github.com/repos/${username}/${repoName}/issues/${prNumber}/comments`,
     request
