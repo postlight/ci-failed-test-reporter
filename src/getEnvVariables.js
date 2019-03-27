@@ -40,7 +40,7 @@ const getRepoName = () => {
     return process.env.TRAVIS_PULL_REQUEST_SLUG.split('/')[1];
   }
 
-  if (process.env.CIRCLECI && process.env.PR_NUMBER) {
+  if (process.env.CIRCLECI && process.env.CIRCLE_PULL_REQUEST) {
     return process.env.CIRCLE_PROJECT_REPONAME;
   }
 };
