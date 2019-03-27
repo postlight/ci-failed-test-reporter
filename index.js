@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 const nodeFetch = require('node-fetch');
 dotenv.config();
-const getTestReport = require('./getTestReport');
+const getTestReport = require('./src/getTestReport');
 const stripAnsi = require('strip-ansi');
 
 function comment(filepath) {

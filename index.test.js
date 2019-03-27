@@ -1,4 +1,4 @@
-import { getReport } from '../index';
+import { getReport } from './index';
 
 describe('getReport', () =>
   test('returns formatted test report', () => {
