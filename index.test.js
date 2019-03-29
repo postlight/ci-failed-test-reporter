@@ -7,5 +7,5 @@ describe('getReport', () =>
       /\s/g,
       ''
     );
-    expect(testReport.startsWith('<details>')).toBeTruthy();
+    expect(testReport.startsWith('<detail>')).toBeTruthy();
   }));
