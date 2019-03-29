@@ -85,10 +85,10 @@ You'll be all set after that! Again, this assumes that the testing framework is 
 While we've only tested this package with Travis and CircleCI, it should work swimmingly with any CI solution that allows you to access a few key pieces of info about the current build. The following environment variables must be defined—you may be able to export them as part of a step in your build process.
 
 ```
-GITHUB_API_KEY="your github API key"
-PR_USERNAME="the repo owner's username"
-PR_NUMBER="the number of the pull request"
-PR_REPONAME="the repo name"
+CIFTR_GITHUB_API_KEY="your github API key"
+CIFTR_PR_USERNAME="the repo owner's username"
+CIFTR_PR_NUMBER="the number of the pull request"
+CIFTR_PR_REPONAME="the repo name"
 ```
 
 Here's an example of how you might manually export the appropriate environment variables, using CircleCI as an example (remember that this package supports CircleCI, so need to use this code in your actual config). The process for another CI tool may or may not look similar.
@@ -97,16 +97,16 @@ Here's an example of how you might manually export the appropriate environment v
   - run:
       name: Define Environment Variables at Runtime
       command: |
-        echo 'export PR_REPONAME=${CIRCLE_PROJECT_REPONAME}' >> $BASH_ENV
-        echo 'export PR_USERNAME=${CIRCLE_PROJECT_USERNAME}' >> $BASH_ENV
+        echo 'export CIFTR_PR_REPONAME=${CIRCLE_PROJECT_REPONAME}' >> $BASH_ENV
+        echo 'export CIFTR_PR_USERNAME=${CIRCLE_PROJECT_USERNAME}' >> $BASH_ENV
         # grep just the pr number from the PR URL
-        echo 'export PR_NUMBER=$(echo $CIRCLE_PULL_REQUEST | grep -Eo "\/pull\/([0-9]+)" | grep -Eo "[0-9]+")' >> $BASH_ENV
+        echo 'export CIFTR_PR_NUMBER=$(echo $CIRCLE_PULL_REQUEST | grep -Eo "\/pull\/([0-9]+)" | grep -Eo "[0-9]+")' >> $BASH_ENV
         source $BASH_ENV
 ```
 
 ### Setting Up Your GitHub API Key Environment Variable
 
-The only environment variable you need to define for use through the CircleCI webapp is `GITHUB_API_KEY`, which must be populated with your GitHub API key. This can be the API key of any user with access to the repo—at Postlight, we've created a `postlight-bot` user and recommend you do similarly. In order to create a GitHub API key, start [here](https://github.com/settings/tokens). The rest of the necessary environment variables are built into CircleCI and are exported in your CircleCI config file, as detailed [above](#Set up your CircleCI config).
+The only environment variable you need to define for use through the CircleCI webapp is `CIFTR_GITHUB_API_KEY`, which must be populated with your GitHub API key. This can be the API key of any user with access to the repo—at Postlight, we've created a `postlight-bot` user and recommend you do similarly. In order to create a GitHub API key, start [here](https://github.com/settings/tokens). The rest of the necessary environment variables are built into CircleCI and are exported in your CircleCI config file, as detailed [above](#Set up your CircleCI config).
 
 ## TODO
 
