@@ -18,15 +18,6 @@ jobs:
 
     steps:
       - checkout
-      - run:
-          name: Define Environment Variables at Runtime
-          command: |
-            echo 'export PR_REPONAME=${CIRCLE_PROJECT_REPONAME}' >> $BASH_ENV
-            echo 'export PR_USERNAME=${CIRCLE_PROJECT_USERNAME}' >> $BASH_ENV
-            # grep just the pr number from the PR URL
-            echo 'export PR_NUMBER=$(echo $CIRCLE_PULL_REQUEST | grep -Eo "\/pull\/([0-9]+)" | grep -Eo "[0-9]+")' >> $BASH_ENV
-            source $BASH_ENV
-
       # Download and cache dependencies
       - restore_cache:
           keys:

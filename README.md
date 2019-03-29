@@ -55,24 +55,9 @@ This tool has only been tested using CircleCI, but should be able to work with a
 
 ### Setting up a CircleCI config
 
-To set things up with CircleCI, there are two `run` blocks you'll need to add to your `.circleci/config.yml` file.
+To set things up with CircleCI, there's just one `run` block you'll need to add to your `.circleci/config.yml` file.
 
-First, set up your environment variables.
-
-```yml
-# exports CircleCI env variables so they can be referenced in your code
-# put this near the top of your job, e.g., after the `checkout` step
-- run:
-    name: Define Environment Variables at Runtime
-    command: |
-      echo 'export PR_REPONAME=${CIRCLE_PROJECT_REPONAME}' >> $BASH_ENV
-      echo 'export PR_USERNAME=${CIRCLE_PROJECT_USERNAME}' >> $BASH_ENV
-      # grep just the pr number from the PR URL
-      echo 'export PR_NUMBER=$(echo $CIRCLE_PULL_REQUEST | grep -Eo "\/pull\/([0-9]+)" | grep -Eo "[0-9]+")' >> $BASH_ENV
-      source $BASH_ENV
-```
-
-Next, after you run your tests (the `yarn test` command below is set up like we have it in the script above), you'll run `ciftr`:
+After the step where you run your tests, you'll run `ciftr`:
 
 ```yml
 - run: yarn test
@@ -82,11 +67,47 @@ Next, after you run your tests (the `yarn test` command below is set up like we 
     when: on_fail # only run this when tests have failed
 ```
 
-You can check out [this CircleCI config](.circleci/config.example.yml) for a full working example. The only thing you will definitely want to change is the `working_directory` value, which should be changed to the name of your repo. Note that this config assumes you're saving your test reports as `/test-report.json` in the root directory.
+You can check out [this CircleCI config](.circleci/config.example.yml) for a full working example. The only thing you will definitely want to change is the `working_directory` value, which should be changed to the name of your repo. Note that this config assumes you're saving your test reports as `test-report.json` in the root directory.
+
+### Setting up a Travis config
+
+To set things up with Travis, you only need to add the following step to your `.travis.yml` file:
+
+```
+after_failure:
+  - yarn ciftr /test-report.json
+```
+
+You'll be all set after that! Again, this assumes that the testing framework is writing test results in a file called `test-report.json` in the root directory of your project. Check out our [example Travis config](.travis.example.yml) for a working example that you can use as a guide.
+
+### Using this project with another CI solution
+
+While we've only tested this package with Travis and CircleCI, it should work swimmingly with any CI solution that allows you to access a few key pieces of info about the current build. The following environment variables must be defined—you may be able to export them as part of a step in your build process.
+
+```
+GITHUB_API_KEY="your github API key"
+PR_USERNAME="the repo owner's username"
+PR_NUMBER="the number of the pull request"
+PR_REPONAME="the repo name"
+```
+
+Here's an example of how you might manually export the appropriate environment variables, using CircleCI as an example (remember that this package supports CircleCI, so need to use this code in your actual config). The process for another CI tool may or may not look similar.
+
+```
+  - run:
+      name: Define Environment Variables at Runtime
+      command: |
+        echo 'export PR_REPONAME=${CIRCLE_PROJECT_REPONAME}' >> $BASH_ENV
+        echo 'export PR_USERNAME=${CIRCLE_PROJECT_USERNAME}' >> $BASH_ENV
+        # grep just the pr number from the PR URL
+        echo 'export PR_NUMBER=$(echo $CIRCLE_PULL_REQUEST | grep -Eo "\/pull\/([0-9]+)" | grep -Eo "[0-9]+")' >> $BASH_ENV
+        source $BASH_ENV
+```
+
 
 ### Setting Up Your GitHub API Key Environment Variable
 
-The only environment variable you need to define for use through the CircleCI webapp is `GITHUB_API_KEY`, which must be populated with your GitHub API key. This can be the API key of any user with access to the repo—at Postlight, we've created a `postlight-bot` user and recommend you do similar. In order to create a GitHub API key, start [here](https://github.com/settings/tokens). The rest of the necessary environment variables are built into CircleCI and are exported in your CircleCI config file, as detailed [above](#Set up your CircleCI config).
+The only environment variable you need to define for use through the CircleCI webapp is `GITHUB_API_KEY`, which must be populated with your GitHub API key. This can be the API key of any user with access to the repo—at Postlight, we've created a `postlight-bot` user and recommend you do similarly. In order to create a GitHub API key, start [here](https://github.com/settings/tokens). The rest of the necessary environment variables are built into CircleCI and are exported in your CircleCI config file, as detailed [above](#Set up your CircleCI config).
 
 ## TODO
 
