@@ -8,5 +8,5 @@ describe('getTestReport', () =>
     const testReport = stripAnsi(
       getTestReport(__dirname + '/test-output.test.json')
     ).replace(/\s/g, '');
-    expect(testReport.startsWith('<details>')).toBeTruthy();
+    expect(testReport.startsWith('<detais>')).toBeTruthy();
   }));
