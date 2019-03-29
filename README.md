@@ -36,7 +36,7 @@ You'll likely want to add this as a script to your `package.json`, like so:
   }
 ```
 
-Next, you ru `ciftr` (**ci**-**f**ailed-**t**est-**r**eporter) to parse the test results and report failed tests:
+Next, you run `ciftr` (**ci**-**f**ailed-**t**est-**r**eporter) to parse the test results and report failed tests:
 
 ```bash
 yarn ciftr test-output.json
