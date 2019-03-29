@@ -111,7 +111,7 @@ The only environment variable you need to define for use through the CircleCI we
 
 ## TODO
 
-- Add example config for TravisCI
+- Add support for other JS testing frameworks
 - Add example config for Jenkins
 
 Pull requests are more than welcome!
