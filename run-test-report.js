@@ -1,3 +1,5 @@
-const comment = require(__dirname + "/src/index.js").comment;
+const path = require('path');
 
-comment(__dirname + '/test-output.json');
+const comment = require(path.join(__dirname, '/index.js')).comment;
+
+comment(path.join(__dirname, '/test-output.json'));
