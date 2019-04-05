@@ -31,4 +31,4 @@ const jsonToResultsObject = json => {
   throw 'JSON test report not in a recognized format';
 };
 
-export default jsonToResultsObject;
+module.exports = jsonToResultsObject;
