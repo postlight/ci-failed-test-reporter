@@ -4,8 +4,8 @@ const assert = require('assert');
 
 const getTestReport = require('../../getTestReport');
 
-describe('getTestReport', () => {
-  it('Generates a test report', () => {
+describe('basic test', () => {
+  it('adds 2 + 2', () => {
     // don't test the whitespace formatting, just the content
     const testReport = stripAnsi(
       getTestReport(path.join(__dirname, '../', '/test-output.test.json'))
