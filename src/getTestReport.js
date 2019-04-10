@@ -25,7 +25,6 @@ const getTestReport = filepath => {
 ${failedTests
   .map(
     ({ fullName, failureMessages }) =>
-      console.log(failureMessages, 'FAILURE MESSAGES') ||
       `
 **${fullName}**
   <details>
