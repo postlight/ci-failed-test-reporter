@@ -25,6 +25,7 @@ const getTestReport = filepath => {
 ${failedTests
   .map(
     ({ fullName, failureMessages }) =>
+      console.log(failureMessages, 'FAILURE MESSAGES') ||
       `
 **${fullName}**
   <details>
@@ -33,7 +34,7 @@ ${failedTests
   </summary>
 
 \`\`\`bash
-${failureMessages.join('\\n')}
+${failureMessages}
 \`\`\`
 
 ---
