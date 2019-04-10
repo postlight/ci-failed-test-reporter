@@ -15,7 +15,7 @@ describe('getTestReport', () => {
   test('Returns empty string if there are no failed tests', () => {
     // don't test the whitespace formatting, just the content
     const testReport = getTestReport(
-      path.join(__dirname, '/nonexistent.test.json')
+      path.join(__dirname, '/passing-jest-results.test.json')
     ).replace(/\s/g, '');
     expect(testReport).toBeFalsy();
   });

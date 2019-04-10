@@ -1,5 +1,5 @@
 const isMocha = json => !!json.stats;
-const isJest = json => !!json.numFailedTestSuites;
+const isJest = json => !!json.testResults;
 
 const jsonToResultsObject = json => {
   if (isMocha(json)) {
