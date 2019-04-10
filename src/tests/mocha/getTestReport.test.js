@@ -5,7 +5,7 @@ const assert = require('assert');
 const getTestReport = require('../../getTestReport');
 
 describe('basic test', () => {
-  it('adds 2 + 2', () => {
+  it('Generates a test report', () => {
     // don't test the whitespace formatting, just the content
     const testReport = stripAnsi(
       getTestReport(path.join(__dirname, '../', '/test-output.test.json'))
@@ -20,4 +20,6 @@ describe('basic test', () => {
     ).replace(/\s/g, '');
     assert.equal(testReport, '');
   });
+
+  it('Adds 2 + 2', () => assert.equal(2 + 2, 5));
 });
