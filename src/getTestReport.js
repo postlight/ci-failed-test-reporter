@@ -33,7 +33,7 @@ ${failedTests
   </summary>
 
 \`\`\`bash
-${failureMessages}
+${failureMessages.join('\\n')}
 \`\`\`
 
 ---
