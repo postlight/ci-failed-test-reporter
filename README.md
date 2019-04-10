@@ -65,7 +65,7 @@ Before that will work in your CI environment, you'll need to do two things:
 
 ## CI Setup
 
-This tool has only been tested using CircleCI, but should be able to work with any CI solution that allows you to set the proper environment variables. Below, we've outlined the process for setting up a CircleCI config for use with the tool. The process should be somewhat similar across CI solutions—make sure to look at the CI tool's docs to determine what needs to be done differently.
+This tool has only been tested using CircleCI and Travis, but should be able to work with any CI solution that allows you to set the proper environment variables. Below, we've outlined the process for setting up a CircleCI config for use with the tool. The process should be somewhat similar across CI solutions—make sure to look at the CI tool's docs to determine what needs to be done differently.
 
 ### Setting up a CircleCI config
 
