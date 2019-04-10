@@ -1,5 +1,4 @@
 import stripAnsi from 'strip-ansi';
-import assert from 'assert';
 import path from 'path';
 
 import getTestReport from '../getTestReport';
@@ -20,6 +19,4 @@ describe('getTestReport', () => {
     ).replace(/\s/g, '');
     expect(testReport).toBeFalsy();
   });
-
-  it('Adds 2 + 2', () => assert.equal(2 + 2, 5));
 });

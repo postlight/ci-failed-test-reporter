@@ -20,4 +20,7 @@ describe('basic test', () => {
     ).replace(/\s/g, '');
     assert.equal(testReport, '');
   });
+
+  it('Adds 2 + 2', () => assert.equal(2 + 2, 5));
+  it('Adds 2 + 2 again', () => assert.equal(2 + 2, 5));
 });
