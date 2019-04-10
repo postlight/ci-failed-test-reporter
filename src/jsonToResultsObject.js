@@ -2,7 +2,7 @@ const isMocha = json => !!json.stats;
 const isJest = json => !!json.numFailedTestSuites;
 
 const jsonToResultsObject = json => {
-  if (isMocha) {
+  if (isMocha(json)) {
     const { failures } = json;
     const failedTests = failures.map(failure => ({
       fullName: failure.fullTitle,
@@ -15,7 +15,7 @@ const jsonToResultsObject = json => {
     };
   }
 
-  if (isJest) {
+  if (isJest(json)) {
     const { testResults } = json;
     const failedTests = testResults
       .map(({ assertionResults }) =>
