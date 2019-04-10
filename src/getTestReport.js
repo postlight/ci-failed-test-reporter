@@ -12,7 +12,7 @@ const getTestReport = filepath => {
     const { failedTests } = testReport;
     const numFailedTests = failedTests.length;
     if (numFailedTests === 0) {
-      return false;
+      return '';
     }
 
     const failureReportMsg = `
@@ -33,7 +33,9 @@ ${failedTests
   </summary>
 
 \`\`\`bash
-${failureMessages}
+${
+  Array.isArray(failureMessages) ? failureMessages.join('\\n') : failureMessages
+}
 \`\`\`
 
 ---
@@ -49,7 +51,7 @@ ${failureMessages}
   } catch (e) {
     // eslint-disable-next-line no-console
     console.log('Error generating test report', e);
-    return false;
+    return '';
   }
 };
 

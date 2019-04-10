@@ -16,10 +16,8 @@ describe('basic test', () => {
   it('Returns empty string if there are no failed tests', () => {
     // don't test the whitespace formatting, just the content
     const testReport = getTestReport(
-      path.join(__dirname, '../', 'test-output.test.json')
+      path.join(__dirname, '/nonexistent.test.json')
     ).replace(/\s/g, '');
     assert.equal(testReport, '');
   });
-
-  it('Adds 2 + 2', () => assert.equal(2 + 2, 5));
 });
