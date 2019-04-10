@@ -6,7 +6,8 @@ const testOrTests = numberOfTests => (numberOfTests === 1 ? 'test' : 'tests');
 
 const getTestReport = filepath => {
   try {
-    const testReportJson = JSON.parse(fs.readFileSync(filepath));
+    const file = fs.readFileSync(filepath);
+    const testReportJson = JSON.parse(file);
     const testReport = jsonToResultsObject(testReportJson);
     const { failedTests } = testReport;
     const numFailedTests = failedTests.length;
@@ -24,7 +25,6 @@ const getTestReport = filepath => {
 ${failedTests
   .map(
     ({ fullName, failureMessages }) =>
-      console.log(failureMessages) ||
       `
 **${fullName}**
   <details>

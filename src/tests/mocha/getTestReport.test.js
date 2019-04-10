@@ -8,7 +8,7 @@ describe('getTestReport', () => {
   it('Generates a test report', () => {
     // don't test the whitespace formatting, just the content
     const testReport = stripAnsi(
-      getTestReport(path.join(__dirname, '../test-output.test.json'))
+      getTestReport(path.join(__dirname, '../', '/test-output.test.json'))
     ).replace(/\s/g, '');
     assert.equal(testReport.startsWith('<details>'), true);
   });
@@ -16,7 +16,7 @@ describe('getTestReport', () => {
   it('Returns empty string if there are no failed tests', () => {
     // don't test the whitespace formatting, just the content
     const testReport = getTestReport(
-      path.join(__dirname, '../test-output.test.json')
+      path.join(__dirname, '../', 'test-output.test.json')
     ).replace(/\s/g, '');
     assert.equal(testReport, '');
   });
