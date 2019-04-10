@@ -31,9 +31,7 @@
     {
       "assertionResults": [
         {
-          "ancestorTitles": [
-            "getTestReport"
-          ],
+          "ancestorTitles": ["getTestReport"],
           "failureMessages": [],
           "fullName": "getTestReport Generates a test report",
           "location": null,
@@ -51,9 +49,7 @@
     {
       "assertionResults": [
         {
-          "ancestorTitles": [
-            "getReport"
-          ],
+          "ancestorTitles": ["getReport"],
           "failureMessages": [],
           "fullName": "getReport returns formatted test report",
           "location": null,
@@ -71,9 +67,7 @@
     {
       "assertionResults": [
         {
-          "ancestorTitles": [
-            "basic test"
-          ],
+          "ancestorTitles": ["basic test"],
           "failureMessages": [],
           "fullName": "basic test Generates a test report",
           "location": null,
