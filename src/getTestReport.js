@@ -1,22 +1,21 @@
 const fs = require('fs');
 
+const jsonToResultsObject = require('./jsonToResultsObject');
+
 const testOrTests = numberOfTests => (numberOfTests === 1 ? 'test' : 'tests');
 
 const getTestReport = filepath => {
   try {
-    const testReport = JSON.parse(fs.readFileSync(filepath));
-    const { numFailedTests } = testReport;
+    const file = fs.readFileSync(filepath);
+    const testReportJson = JSON.parse(file);
+    const testReport = jsonToResultsObject(testReportJson);
+    const { failedTests } = testReport;
+    const numFailedTests = failedTests.length;
     if (numFailedTests === 0) {
-      return false;
+      return '';
     }
-    const { testResults } = testReport;
-    const failedTests = testResults
-      .map(({ assertionResults }) =>
-        assertionResults.filter(({ status }) => status !== 'passed')
-      )
-      .reduce((acc, arr) => acc.concat(arr));
 
-    const failureReport = `
+    const failureReportMsg = `
 <details>
 <summary>
 <b>${numFailedTests} failed ${testOrTests(numFailedTests)} 😱</b>
@@ -34,7 +33,9 @@ ${failedTests
   </summary>
 
 \`\`\`bash
-${failureMessages.join('\n\n')}
+${
+  Array.isArray(failureMessages) ? failureMessages.join('\\n') : failureMessages
+}
 \`\`\`
 
 ---
@@ -46,11 +47,11 @@ ${failureMessages.join('\n\n')}
   .join('\n\n')}
 </details>
 `;
-    return failureReport;
+    return failureReportMsg;
   } catch (e) {
     // eslint-disable-next-line no-console
     console.log('Error generating test report', e);
-    return false;
+    return '';
   }
 };
 
