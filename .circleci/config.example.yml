@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:10.2.1
+      - image: circleci/node:10.16
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -34,7 +34,7 @@ jobs:
 
       # run tests!
       - run: yarn test
-      - run: 
+      - run:
           name: Upload Test Report
           command: yarn ci-failed-test-reporter /test-report.json
           when: on_fail
